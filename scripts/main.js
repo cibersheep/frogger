@@ -9,13 +9,14 @@ var Frogger = (function() {
 
         // Locate the background <canvas> element on the page
         backgroundCanvas = document.getElementById("background-canvas"),
-
+		
         // Get a reference to the background <canvas> element's 2-D drawing surface context
         backgroundDrawingSurface = backgroundCanvas.getContext("2d"),
 
         // Get a reference to the <canvas> element's width and height, in pixels
         drawingSurfaceWidth = canvas.width,
         drawingSurfaceHeight = canvas.height;
+        
 
     return {
 
@@ -175,6 +176,8 @@ window.requestAnimationFrame = (function(){
 
         // Inform other code modules in this application that the game is over
         Frogger.observer.publish("game-over");
+        
+        t1 = window.setTimeout(function(){ window.location = "frogger.html"; },5000);
     }
 
     // Define a function to be called when the player has reached the goal
@@ -182,6 +185,8 @@ window.requestAnimationFrame = (function(){
 
         // Inform other code modules that the game has been won
         Frogger.observer.publish("game-won");
+        
+        t1 = window.setTimeout(function(){ window.location = "frogger.html"; },5000);
     }
 
     // Define a function to be called when the player loses a life
@@ -920,6 +925,7 @@ Frogger.ImageSprite.prototype = {
         // Only render the "GAME OVER" text if the game is actually over
         if (_gameOver) {
             renderGameOver();
+            
         }
 
         // Only render the "YOU WIN!" text if the players has won the game
@@ -1532,13 +1538,13 @@ Frogger.Character = (function(Frogger) {
         // countdown timer at the base of the screen
         if (this.top > _gameBoard.characterBounds.bottom) {
             this.top = _gameBoard.characterBounds.bottom;
-        }
+        } else _currentRow++; // Keep track of the current row the character sits upon
+        
 
         // Play the animation named "move-down", making it look like the character is moving
         this.playAnimation("move-down");
 
-        // Keep track of the current row the character sits upon
-        _currentRow++;
+        
     };
 
     // Define a method to move the character one column to the left on the game board
@@ -1749,14 +1755,15 @@ Frogger.Character = (function(Frogger) {
 
         // Execute the move() function, passing along the correct direction based on the
         // position tapped on the game board
-        if (touchLeft < (Frogger.drawingSurfaceWidth / 8)) {
-            move(Frogger.direction.LEFT);
-        } else if (touchLeft > (3 * Frogger.drawingSurfaceWidth / 8)) {
-            move(Frogger.direction.RIGHT);
-        } else if (touchTop < (Frogger.drawingSurfaceHeight / 8)) {
+        if (touchTop < (screen.height / 3)) {
             move(Frogger.direction.UP);
-        } else if (touchTop > (3 * Frogger.drawingSurfaceHeight / 8)) {
+        } else if (touchTop > 2 * (screen.height / 3)) {
             move(Frogger.direction.DOWN);
+        } else if (touchLeft > (screen.width / 2)) {
+            move(Frogger.direction.RIGHT);
+        } else if (touchLeft < (screen.width / 2)){
+            move(Frogger.direction.LEFT);
+
         }
     }, false);
 
