@@ -186,7 +186,7 @@ window.requestAnimationFrame = (function(){
         // Inform other code modules that the game has been won
         Frogger.observer.publish("game-won");
         
-        t1 = window.setTimeout(function(){ window.location = "frogger.html"; },5000);
+        t1 = window.setTimeout(function(){ window.location.reload(true); },5000);
     }
 
     // Define a function to be called when the player loses a life
