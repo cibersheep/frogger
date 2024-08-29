@@ -1,0 +1,15 @@
+{
+    "name": "frogger.joan",
+    "description": "frogger game remake",
+    "architecture": "@CLICK_ARCH@",
+    "title": "Frogger",
+    "hooks": {
+        "test-html": {
+            "apparmor": "frogger.apparmor",
+            "desktop": "frogger.desktop"
+        }
+    },
+    "version": "1.0.0",
+    "maintainer": "Joan CiberSheep <joan@his-email.com>",
+    "framework": "@CLICK_FRAMEWORK@"
+}
