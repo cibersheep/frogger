@@ -4,7 +4,7 @@
     "architecture": "@CLICK_ARCH@",
     "title": "Frogger",
     "hooks": {
-        "test-html": {
+        "frogger": {
             "apparmor": "frogger.apparmor",
             "desktop": "frogger.desktop"
         }

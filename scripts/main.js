@@ -177,7 +177,7 @@ window.requestAnimationFrame = (function(){
         // Inform other code modules in this application that the game is over
         Frogger.observer.publish("game-over");
         
-        t1 = window.setTimeout(function(){ window.location = "frogger.html"; },5000);
+        t1 = window.setTimeout(function(){ window.location = "index.html"; },5000);
     }
 
     // Define a function to be called when the player has reached the goal
