@@ -1,6 +1,6 @@
 {
-    "name": "frogger.joan",
-    "description": "frogger game remake",
+    "name": "frogger.cibersheep",
+    "description": "Frogger game remake",
     "architecture": "@CLICK_ARCH@",
     "title": "Frogger",
     "hooks": {
@@ -10,6 +10,6 @@
         }
     },
     "version": "1.0.0",
-    "maintainer": "Joan CiberSheep <joan@his-email.com>",
+    "maintainer": "Joan CiberSheep <cibersheep@gmail.com>",
     "framework": "@CLICK_FRAMEWORK@"
 }
