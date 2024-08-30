@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=frogger
+Exec=webapp-container --app-id="frogger.joan" $@ index.html
+Icon=images/icon.png
+Terminal=false
+Type=Application
+X-Lomiri-Touch=true
