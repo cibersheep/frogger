@@ -1,0 +1,11 @@
+clickable_minimum_required:
+    "8.0.0"
+builder:
+    "pure"
+ignore:
+    - svg
+    - .gitignore
+kill:
+    "webapp-container"
+skip_review: true
+framework: ubuntu-sdk-20.04    
